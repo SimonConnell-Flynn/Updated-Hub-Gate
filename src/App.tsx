@@ -71,7 +71,7 @@ const App: React.FC = () => {
     Life City Worship Volunteer Hub
   </h1>
   <p className={`subtitle ${isDark ? 'dark' : 'light'}`}>
-    Enter your password to access the hub
+    Enter the password to access the hub
   </p>
 </div>
 
