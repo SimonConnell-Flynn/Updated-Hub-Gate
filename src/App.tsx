@@ -131,7 +131,7 @@ const App: React.FC = () => {
               Want to go to our YouTube page instead?
             </p>
             <a
-              href="https://www.youtube.com/@your-church-channel"
+              href="https://www.youtube.com/watch?v=qal1xbKTnjM&list=PLojz68sKoGE3y4l_oO6SkbdYgumXnKwcc"
               target="_blank"
               rel="noopener noreferrer"
               className={`youtube-link ${isDark ? 'dark' : 'light'}`}
