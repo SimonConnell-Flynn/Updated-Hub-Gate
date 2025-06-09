@@ -460,16 +460,28 @@
 }
 
 /* Animations */
-@keyframes pulse {
-  0%, 100% {
+@keyframes logo-float-scale {
+  0% {
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    transform: translateY(-6px) scale(1.03);
+    opacity: 0.95;
   }
-}.logo-image {
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.logo-image {
   width: 120px;
   height: auto;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Animate only when this class is present */
+.logo.animating .logo-image {
+  animation: logo-float-scale 2s ease-in-out forwards;
 }
