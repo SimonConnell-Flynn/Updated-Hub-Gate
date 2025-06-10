@@ -57,24 +57,23 @@ const App: React.FC = () => {
       <div className="main-content">
         <div className={`card ${isDark ? 'dark' : 'light'}`}>
           
-       {/* Logo Section */}
-<div className="logo-section">
-  <div className={`logo ${isLogoAnimating ? 'animating' : ''}`}>
-    <img
-      src={isDark ? '/logo-white.svg' : '/logo-black.svg'}
-      alt="Life City Logo"
-      className="logo-image"
-    />
-  </div>
+          {/* Logo Section */}
+          <div className="logo-section">
+            <div className={`logo ${isLogoAnimating ? 'animating' : ''}`}>
+              <img
+                src={isDark ? '/logo-white.svg' : '/logo-black.svg'}
+                alt="Life City Logo"
+                className="logo-image"
+              />
+            </div>
 
-  <h1 className={`title ${isDark ? 'dark' : 'light'}`}>
-    Life City Worship Volunteer Hub
-  </h1>
-  <p className={`subtitle ${isDark ? 'dark' : 'light'}`}>
-    Enter the password to access the hub
-  </p>
-</div>
-
+            <h1 className={`title ${isDark ? 'dark' : 'light'}`}>
+              Life City Worship Volunteer Hub
+            </h1>
+            <p className={`subtitle ${isDark ? 'dark' : 'light'}`}>
+              Enter the password to access the hub
+            </p>
+          </div>
 
           {/* Password Form */}
           <div className="form-section">
@@ -93,7 +92,6 @@ const App: React.FC = () => {
                 }}
               />
 
-              
               {/* Show/Hide Password Button */}
               <button
                 type="button"
@@ -102,6 +100,7 @@ const App: React.FC = () => {
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
 
             {/* Error Message */}
@@ -121,6 +120,9 @@ const App: React.FC = () => {
                 maxWidth: '100%'
               }}
             >
+              Access Hub
+            </button>
+          </div>
 
           {/* YouTube Channel Link */}
           <div className="youtube-section">
