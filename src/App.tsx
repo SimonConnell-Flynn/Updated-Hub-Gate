@@ -128,7 +128,7 @@ const App: React.FC = () => {
           {/* YouTube Channel Link */}
           <div className="youtube-section">
             <p className={`youtube-text ${isDark ? 'dark' : 'light'}`}>
-              Want to go to our YouTube page instead?
+              Visit our YouTube page below
             </p>
             <a
               href="https://www.youtube.com/watch?v=qal1xbKTnjM&list=PLojz68sKoGE3y4l_oO6SkbdYgumXnKwcc"
