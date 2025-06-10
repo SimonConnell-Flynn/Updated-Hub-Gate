@@ -57,23 +57,24 @@ const App: React.FC = () => {
       <div className="main-content">
         <div className={`card ${isDark ? 'dark' : 'light'}`}>
           
-          {/* Logo Section */}
-          <div className="logo-section">
-            <div className={`logo ${isLogoAnimating ? 'animating' : ''}`}>
-              <img
-                src={isDark ? '/logo-white.svg' : '/logo-black.svg'}
-                alt="Life City Logo"
-                className="logo-image"
-              />
-            </div>
+       {/* Logo Section */}
+<div className="logo-section">
+  <div className={`logo ${isLogoAnimating ? 'animating' : ''}`}>
+    <img
+      src={isDark ? '/logo-white.svg' : '/logo-black.svg'}
+      alt="Life City Logo"
+      className="logo-image"
+    />
+  </div>
 
-            <h1 className={`title ${isDark ? 'dark' : 'light'}`}>
-              Life City Worship Volunteer Hub
-            </h1>
-            <p className={`subtitle ${isDark ? 'dark' : 'light'}`}>
-              Enter the password to access the hub
-            </p>
-          </div>
+  <h1 className={`title ${isDark ? 'dark' : 'light'}`}>
+    Life City Worship Volunteer Hub
+  </h1>
+  <p className={`subtitle ${isDark ? 'dark' : 'light'}`}>
+    Enter your password to access the hub
+  </p>
+</div>
+
 
           {/* Password Form */}
           <div className="form-section">
@@ -91,7 +92,7 @@ const App: React.FC = () => {
                   minWidth: '240px'
                 }}
               />
-
+              
               {/* Show/Hide Password Button */}
               <button
                 type="button"
@@ -120,14 +121,12 @@ const App: React.FC = () => {
                 maxWidth: '100%'
               }}
             >
-              Access Hub
-            </button>
           </div>
 
           {/* YouTube Channel Link */}
           <div className="youtube-section">
             <p className={`youtube-text ${isDark ? 'dark' : 'light'}`}>
-              Visit our YouTube page below
+              Want to go to our YouTube page instead?
             </p>
             <a
               href="https://www.youtube.com/watch?v=qal1xbKTnjM&list=PLojz68sKoGE3y4l_oO6SkbdYgumXnKwcc"
