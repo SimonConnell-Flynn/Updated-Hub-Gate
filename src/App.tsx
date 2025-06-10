@@ -8,7 +8,6 @@ const App: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isLogoAnimating, setIsLogoAnimating] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
-  const [isInputFocused, setIsInputFocused] = useState(false);
   
   // Your Notion page URL and correct password
   const NOTION_URL: string = 'https://www.notion.so/Life-City-Worship-Volunteer-Hub-1e7c88dcb985804ab208eb8181fecb2d';
@@ -93,21 +92,7 @@ const App: React.FC = () => {
                   minWidth: '240px'
                 }}
               />
-<input
-  type={showPassword ? 'text' : 'password'}
-  value={password}
-  onChange={(e) => setPassword(e.target.value)}
-  onKeyDown={handleKeyDown}
-  onFocus={() => setIsInputFocused(true)} // 👈 Add this
-  onBlur={() => setIsInputFocused(false)} // 👈 And this
-  placeholder="Enter password"
-  className={`password-input ${isDark ? 'dark' : 'light'}`}
-  style={{ 
-    width: '280px',
-    maxWidth: '100%',
-    minWidth: '240px'
-  }}
-/>
+
               
               {/* Show/Hide Password Button */}
               <button
@@ -141,14 +126,6 @@ const App: React.FC = () => {
             </button>
           </div>
 
-<button
-  onClick={handleSubmit}
-  disabled={!password.trim()}
-  className={`submit-button ${isDark ? 'dark' : 'light'} ${password.trim() ? 'enabled' : 'disabled'} ${isInputFocused ? 'pulse' : ''}`}
-  style={{
-    width: '280px',
-    maxWidth: '100%'
-  }}
 >
   Enter the Hub
 </button>
