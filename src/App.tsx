@@ -8,6 +8,7 @@ const App: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isLogoAnimating, setIsLogoAnimating] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [isInputFocused, setIsInputFocused] = useState(false);
   
   // Your Notion page URL and correct password
   const NOTION_URL: string = 'https://www.notion.so/Life-City-Worship-Volunteer-Hub-1e7c88dcb985804ab208eb8181fecb2d';
