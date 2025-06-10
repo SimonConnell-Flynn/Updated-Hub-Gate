@@ -122,9 +122,6 @@ const App: React.FC = () => {
                 maxWidth: '100%'
               }}
             >
-              Enter the Hub
-            </button>
-          </div>
 
 >
   Enter the Hub
