@@ -93,6 +93,21 @@ const App: React.FC = () => {
                   minWidth: '240px'
                 }}
               />
+<input
+  type={showPassword ? 'text' : 'password'}
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  onKeyDown={handleKeyDown}
+  onFocus={() => setIsInputFocused(true)} // 👈 Add this
+  onBlur={() => setIsInputFocused(false)} // 👈 And this
+  placeholder="Enter password"
+  className={`password-input ${isDark ? 'dark' : 'light'}`}
+  style={{ 
+    width: '280px',
+    maxWidth: '100%',
+    minWidth: '240px'
+  }}
+/>
               
               {/* Show/Hide Password Button */}
               <button
@@ -125,6 +140,18 @@ const App: React.FC = () => {
               Enter the Hub
             </button>
           </div>
+
+<button
+  onClick={handleSubmit}
+  disabled={!password.trim()}
+  className={`submit-button ${isDark ? 'dark' : 'light'} ${password.trim() ? 'enabled' : 'disabled'} ${isInputFocused ? 'pulse' : ''}`}
+  style={{
+    width: '280px',
+    maxWidth: '100%'
+  }}
+>
+  Enter the Hub
+</button>
 
           {/* YouTube Channel Link */}
           <div className="youtube-section">
