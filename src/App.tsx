@@ -123,7 +123,6 @@ const App: React.FC = () => {
               }}
             >
 
->
   Enter the Hub
 </button>
 
