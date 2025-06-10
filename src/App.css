@@ -461,33 +461,61 @@
 
 /* Animations */
 
-@keyframes logo-glow-pulse {
+/* Base Logo Styles */
+.logo-image {
+  width: 120px;
+  height: auto;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Animations */
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logo-glow-pulse-light {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0 rgba(100, 108, 255, 0));
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
   }
   50% {
     transform: scale(1.06);
-    filter: drop-shadow(0 0 10px rgba(100, 108, 255, 0.4));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
   }
 }
 
-/* Dark Mode */
-.dark .logo.animating .logo-image {
-  filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
-}
-.dark .logo.animating .logo-image {
-  animation:
-    logo-reveal 0.4s ease-out forwards,
-    logo-glow-pulse 1.2s ease-in-out 0.4s forwards;
+@keyframes logo-glow-pulse-dark {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  }
 }
 
-/* Light Mode */
-.light .logo.animating .logo-image {
-  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+/* Dark Mode Animation */
+.dark .logo.animating .logo-image {
+  animation:
+    logo-reveal 0.3s ease-out forwards,
+    logo-glow-pulse-dark 1.2s ease-in-out 0.3s forwards;
+  will-change: transform, opacity, filter;
 }
+
+/* Light Mode Animation */
 .light .logo.animating .logo-image {
   animation:
-    logo-reveal 0.4s ease-out forwards,
-    logo-glow-pulse 1.2s ease-in-out 0.4s forwards;
+    logo-reveal 0.3s ease-out forwards,
+    logo-glow-pulse-light 1.2s ease-in-out 0.3s forwards;
+  will-change: transform, opacity, filter;
 }
