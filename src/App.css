@@ -528,3 +528,18 @@
     logo-glow-pulse-light 1.2s ease-in-out 0.3s forwards;
   will-change: transform, opacity, filter;
 }
+
+.card {
+  animation: card-rise 0.6s ease-out;
+}
+
+@keyframes card-rise {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
