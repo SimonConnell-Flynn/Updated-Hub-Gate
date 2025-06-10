@@ -102,7 +102,6 @@ const App: React.FC = () => {
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
             </div>
 
             {/* Error Message */}
@@ -122,9 +121,6 @@ const App: React.FC = () => {
                 maxWidth: '100%'
               }}
             >
-
-  Enter the Hub
-</button>
 
           {/* YouTube Channel Link */}
           <div className="youtube-section">
