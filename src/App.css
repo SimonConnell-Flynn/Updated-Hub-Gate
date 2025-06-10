@@ -460,42 +460,31 @@
 }
 
 /* Animations */
-@keyframes logo-float-scale {
+@keyframes logo-reveal {
   0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-6px) scale(1.03);
-    opacity: 0.95;
+    opacity: 0;
+    transform: scale(0.9);
   }
   100% {
-    transform: translateY(0) scale(1);
     opacity: 1;
+    transform: scale(1);
   }
 }
 
-.logo-image {
-  width: 120px;
-  height: auto;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-@keyframes glow-pulse {
+@keyframes logo-glow-pulse {
   0%, 100% {
+    transform: scale(1);
     filter: drop-shadow(0 0 0 rgba(100, 108, 255, 0));
   }
   50% {
-    filter: drop-shadow(0 0 8px rgba(100, 108, 255, 0.4));
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 10px rgba(100, 108, 255, 0.4));
   }
 }
 
 .logo.animating .logo-image {
-  animation: logo-smooth-rotate 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-             glow-pulse 2.5s ease-in-out forwards;
-}
-
-/* Animate only when this class is present */
-.logo.animating .logo-image {
-  animation: logo-float-scale 2s ease-in-out forwards;
+  animation:
+    logo-reveal 0.4s ease-out forwards,
+    logo-glow-pulse 1.2s ease-in-out 0.4s forwards;
+  will-change: opacity, transform, filter;
 }
