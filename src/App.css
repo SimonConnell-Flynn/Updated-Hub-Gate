@@ -12,7 +12,6 @@
   overflow: hidden; /* ✅ Prevent scrolling both ways */
   box-sizing: border-box;
 }
-}
 
 .app-container.dark {
   background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e293b 100%);
