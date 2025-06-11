@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life City Worship Volunteer Hub</title>
+    <link rel="icon" type="image/x-icon" href="/lc-logo.ico">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -36,7 +37,7 @@
         }
 
         .app-container.dark {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e293b 100%);
+            background: linear-gradient(135deg, #0a0f1c 0%, #0f1629 50%, #1a1f2e 100%);
         }
 
         .app-container.light {
@@ -138,27 +139,13 @@
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        .logo-placeholder {
-            width: 6rem;
-            height: 6rem;
-            margin: 0 auto;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            transition: all 0.5s ease;
-        }
-
-        .logo-placeholder.dark {
-            background: #2563eb;
-            color: white;
-        }
-
-        .logo-placeholder.light {
-            background: #3b82f6;
-            color: white;
+        .logo-image {
+            width: 120px;
+            height: auto;
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .title {
@@ -584,9 +571,11 @@
                             {/* Logo Section */}
                             <div className="logo-section">
                                 <div className={`logo ${isLogoAnimating ? 'animating' : ''}`}>
-                                    <div className={`logo-placeholder ${isDark ? 'dark' : 'light'}`}>
-                                        LC
-                                    </div>
+                                    <img
+                                        src={isDark ? '/lc-white.svg' : '/lc-black.svg'}
+                                        alt="Life City Logo"
+                                        className="logo-image"
+                                    />
                                 </div>
 
                                 <h1 className={`title ${isDark ? 'dark' : 'light'}`}>
