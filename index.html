@@ -497,7 +497,7 @@
                 opacity: .5;
             }
         }
-    </style>
+   </style>
 </head>
 <body>
     <div id="root"></div>
@@ -573,30 +573,30 @@
         );
 
         const App = () => {
-            const [isDark, setIsDark] = useState(true);
             const [password, setPassword] = useState('');
             const [showPassword, setShowPassword] = useState(false);
-            const [isLogoAnimating, setIsLogoAnimating] = useState(true);
             const [error, setError] = useState('');
-            
-            // Your Notion page URL and correct password
-            const NOTION_URL = 'https://www.notion.so/Life-City-Worship-Volunteer-Hub-1e7c88dcb985804ab208eb8181fecb2d';
-            const CORRECT_PASSWORD = 'romans12:1';
+            const [isDark, setIsDark] = useState(() => {
+                return localStorage.getItem('isDarkTheme') === 'true';
+            });
 
             useEffect(() => {
-                // Trigger logo animation on theme change
-                setIsLogoAnimating(true);
-                const timer = setTimeout(() => setIsLogoAnimating(false), 1000);
-                return () => clearTimeout(timer);
+                localStorage.setItem('isDarkTheme', isDark);
             }, [isDark]);
+
+            const toggleTheme = () => {
+                setIsDark(prev => !prev);
+            };
+
+            const correctPassword = 'life2024';
 
             const handleSubmit = (e) => {
                 e.preventDefault();
-                if (password === CORRECT_PASSWORD) {
-                    window.location.href = NOTION_URL;
+                if (password === correctPassword) {
+                    setError('');
+                    alert('Access granted!'); // Replace with your navigation logic
                 } else {
                     setError('Incorrect password. Please try again.');
-                    setTimeout(() => setError(''), 3000);
                 }
             };
 
@@ -606,13 +606,8 @@
                 }
             };
 
-            const toggleTheme = () => {
-                setIsDark(!isDark);
-            };
-
             return (
                 <div className={`app-container ${isDark ? 'dark' : 'light'}`}>
-                    {/* Theme Toggle Button */}
                     <div className="theme-toggle">
                         <button
                             onClick={toggleTheme}
@@ -622,6 +617,40 @@
                             {isDark ? <Sun /> : <Moon />}
                         </button>
                     </div>
+
+                    <div className="main-content">
+                        <div className={`card ${isDark ? 'dark' : 'light'}`}>
+                            {isDark ? <LifeCityLogoWhite /> : <LifeCityLogoBlack />}
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                    placeholder="Enter password"
+                                    aria-label="Password"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    aria-label="Toggle password visibility"
+                                >
+                                    {showPassword ? <EyeOff /> : <Eye />}
+                                </button>
+                                <button type="submit">Enter</button>
+                            </form>
+                            {error && <p className="error-message">{error}</p>}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
+
 
                     {/* Main Content */}
                     <div className="main-content">
