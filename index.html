@@ -19,21 +19,23 @@
         body {
             font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
-            overflow: hidden;
+            /* Removed overflow: hidden to fix mobile scrolling */
+            min-height: 100vh;
         }
 
         /* App styles */
         .app-container {
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 1rem;
-            overflow: hidden;
+            /* Removed overflow: hidden */
             box-sizing: border-box;
             transition: all 0.5s ease;
+            position: relative;
         }
 
         .app-container.dark {
@@ -46,7 +48,7 @@
 
         /* Theme Toggle Button */
         .theme-toggle {
-            position: absolute;
+            position: fixed;
             top: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
@@ -97,8 +99,9 @@
             justify-content: center;
             min-height: 100vh;
             padding: 1rem;
-            padding-top: 2rem;
-            padding-bottom: 1rem;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+            width: 100%;
         }
 
         .card {
@@ -395,6 +398,7 @@
             inset: 0;
             pointer-events: none;
             overflow: hidden;
+            z-index: -1;
         }
 
         .decoration-1 {
@@ -454,6 +458,19 @@
             
             .main-content {
                 padding-top: 4rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        /* Additional mobile improvements */
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 4rem 0.5rem 2rem;
+            }
+            
+            .card {
+                margin: 0.5rem;
+                padding: 1.25rem;
             }
         }
 
@@ -680,22 +697,4 @@
                             </div>
 
                             {/* Footer */}
-                            <div className={`footer ${isDark ? 'dark' : 'light'}`}>
-                                Life City Worship Team
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Background decoration */}
-                    <div className="background-decoration">
-                        <div className={`decoration-1 ${isDark ? 'dark' : 'light'}`}></div>
-                        <div className={`decoration-2 ${isDark ? 'dark' : 'light'}`}></div>
-                    </div>
-                </div>
-            );
-        };
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-</body>
-</html>
+                            <div className={`footer ${isDark ? 'dark' :
