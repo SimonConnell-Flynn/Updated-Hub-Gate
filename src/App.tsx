@@ -112,7 +112,7 @@ const App: React.FC = () => {
             )}
 
             {/* Submit Button */}
-   <button
+<button
   onClick={handleSubmit}
   disabled={!password.trim()}
   className={`submit-button ${isDark ? 'dark' : 'light'} ${password.trim() ? 'enabled' : 'disabled'}`}
@@ -124,7 +124,8 @@ const App: React.FC = () => {
   Enter Hub
 </button>
 
-          </div>
+</div> {/* 👈 Add this line to close .form-section */}
+
 
           {/* YouTube Channel Link */}
           <div className="youtube-section">
