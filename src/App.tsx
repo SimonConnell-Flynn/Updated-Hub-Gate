@@ -112,15 +112,18 @@ const App: React.FC = () => {
             )}
 
             {/* Submit Button */}
-            <button
-              onClick={handleSubmit}
-              disabled={!password.trim()}
-              className={`submit-button ${isDark ? 'dark' : 'light'} ${password.trim() ? 'enabled' : 'disabled'}`}
-              style={{
-                width: '280px',
-                maxWidth: '100%'
-              }}
-            >
+   <button
+  onClick={handleSubmit}
+  disabled={!password.trim()}
+  className={`submit-button ${isDark ? 'dark' : 'light'} ${password.trim() ? 'enabled' : 'disabled'}`}
+  style={{
+    width: '280px',
+    maxWidth: '100%'
+  }}
+>
+  Enter Hub
+</button>
+
           </div>
 
           {/* YouTube Channel Link */}
